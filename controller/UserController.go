@@ -63,3 +63,17 @@ func (controller *UserController) UpdateUserName(context *gin.Context) {
 		"code": 1,
 	})
 }
+
+func (controller *UserController) GetUserInfoById(context *gin.Context) {
+	userId := context.GetInt("user_id")
+	if userId == 0 {
+		context.JSON(10000, "参数错误")
+	}
+	userInfo, err := service.GetUser(userId)
+	if err != nil {
+
+	}
+	context.JSON(http.StatusOK, gin.H{
+		"user": userInfo,
+	})
+}

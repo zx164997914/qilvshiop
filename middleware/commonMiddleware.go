@@ -8,3 +8,6 @@ import (
 func Test(c *gin.Context) {
 	fmt.Println("中间件")
 }
+func CommonAuth(c *gin.Context) {
+
+}
